@@ -13,6 +13,16 @@ import { ReactComponent as Logo } from "../assets/Logo.svg";
 
 // a container to fill the window, wrap all contents, and center them
 const Container = styled.div`
+
+	background-color: #7855da;
+	color: #ffffff;
+
+	font-family: "Lobster";
+	font-size: 2rem;
+`;
+const PhoneScreen = styled.div`
+
+	background-color: #7855da;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -23,13 +33,8 @@ const Container = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-
-	background-color: #7855da;
-	color: #43d1e7;
-
-	font-family: "Lobster";
-	font-size: 2rem;
-`;
+	height: 896px;
+`
 
 // ========= MAIN =========
 const Index = ({ data }) => {
@@ -52,8 +57,19 @@ const Index = ({ data }) => {
 			<SEO title="Welcome to the Challenge" />
 
 			<Container>
-				<Logo />
+				<PhoneScreen>
+				<div>
+				<Logo
+                    css={css`
+					margin-left: 50px;
+                    `}/>
 				<Card item={items[selected]}></Card>
+				<div 
+                    css={css`
+					height: 60px;
+                    `}/>
+				</div>
+				</PhoneScreen>
 			</Container>
 		</>
 	);

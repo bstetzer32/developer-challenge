@@ -5,7 +5,7 @@ import "normalize.css";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 
-const Card = ({item}) => {
+const Card = ({item, children}) => {
 
     if(!item) {
         return null
@@ -15,7 +15,13 @@ const Card = ({item}) => {
                 css={css`
                     width: 330px;
                     height: 600px;
-                    border: 1px solid black;`}
+                    border: 0;
+                    border-radius: 50px;
+                    overflow: hidden;
+	                background-color: #ffffff;
+	                color: #000000;
+                    box-shadow: 0 25px 25px rgb(0 0 0 / 20%);
+                    `}
         >
             <div
                 css={css`
@@ -42,16 +48,18 @@ const Card = ({item}) => {
                     `}>
                 <div></div>
                 <div>
-                    <h2
+                    <h1
                     css={css`
                     	font-family: "Lobster";
-	                    font-size: 2rem;
+	                    font-size: 2.5rem;
+                        font-weight: normal;
                     `}
-                    >{item.title.text}{` `}</h2>
+                    >{item.title.text}{` `}</h1>
                     <p
                     css={css`
 	                    font-family: "Jura";
-	                    font-size: 1rem;
+	                    font-size: 0.9rem;
+                        font-weight: lighter;
                     `}
                     >{item.description.text}</p>
                 </div>
@@ -59,8 +67,12 @@ const Card = ({item}) => {
                     <button
                     css={css`
                     	width: 100%;
-                        height: 100%;
+                        height: 60px;
 	                    font-family: "Jura";
+                        border-width: 0;
+                        border-radius: 15px;
+	                    background-color: #da55db;
+	                    color: #ffffff;
                     `}>ORDER {item.quantity.text.toUpperCase()}</button>
                 </div>
             </div>

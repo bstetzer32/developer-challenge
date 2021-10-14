@@ -37,13 +37,15 @@ const Card = ({item}) => {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
-                        height: 340px;
-                        padding: 30px;
+                        height: 370px;
+                        padding: 0px 30px 30px 30px;
                     `}>
+                <div></div>
                 <div>
                     <h2
                     css={css`
                     	font-family: "Lobster";
+	                    font-size: 2rem;
                     `}
                     >{item.title.text}{` `}</h2>
                     <p
@@ -53,11 +55,13 @@ const Card = ({item}) => {
                     `}
                     >{item.description.text}</p>
                 </div>
-                <div
+                <div>
+                    <button
                     css={css`
-                    	align-self: end;
-                    `}>
-                    <button></button>
+                    	width: 100%;
+                        height: 100%;
+	                    font-family: "Jura";
+                    `}>ORDER {item.quantity.text.toUpperCase()}</button>
                 </div>
             </div>
         </div>

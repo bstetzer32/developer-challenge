@@ -7,6 +7,7 @@ import { css } from "@emotion/core";
 
 import SEO from "../components/SEO";
 import Card from "../components/Card";
+import Nav from "../components/Nav";
 import { ReactComponent as Logo } from "../assets/Logo.svg";
 
 // ========= COMPONENTS =========
@@ -38,9 +39,9 @@ const PhoneScreen = styled.div`
 
 // ========= MAIN =========
 const Index = ({ data }) => {
-	// get the product data from prisma
 	const [items, setItems] = useState({})
 	const [selected, setSelected] = useState("DESSERT")
+	// set items on pageload
 	useEffect(()=>{
 		let newItems = {}
 		data.allPrismicProduct.edges.forEach((v, i) =>{
@@ -48,8 +49,6 @@ const Index = ({ data }) => {
 		})
 		setItems(newItems)
 	},[])
-	// const item = data.allPrismicProduct.data;
-	console.log(items)
 
 	return (
 		<>
@@ -57,18 +56,22 @@ const Index = ({ data }) => {
 			<SEO title="Welcome to the Challenge" />
 
 			<Container>
+				{/* centered container for phone screen */}
 				<PhoneScreen>
-				<div>
-				<Logo
-                    css={css`
-					margin-left: 50px;
-                    `}/>
-				<Card item={items[selected]}></Card>
-				<div 
-                    css={css`
-					height: 60px;
-                    `}/>
-				</div>
+					<div>
+						<Logo
+							css={css`
+							margin-left: 50px;
+							`}/>
+						{/* card component that rerenders when selected item changes */}
+						<Card item={items[selected]}></Card>
+						<div 
+							css={css`
+							height: 60px;
+							`}/>
+					</div>
+					{/* nav menu that uses state to maintain location */}
+					<Nav selected={selected} onClick={(e)=> setSelected(e.target.value)}/>
 				</PhoneScreen>
 			</Container>
 		</>
@@ -79,6 +82,7 @@ export default Index;
 
 // ========= QUERY =========
 // use gatsby's graphql query to get required data
+// Querying for all products
 export const query = graphql`
 	query {
 		allPrismicProduct {

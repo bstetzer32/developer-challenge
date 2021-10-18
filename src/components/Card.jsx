@@ -1,17 +1,9 @@
 import React from "react";
+import Button from "./Button";
 
 import "normalize.css";
 import "./Card.css"
 
-const CardButton = ({onClick, itemText}) => {
-    return (
-            <button
-            onClick={onClick}
-            className="card-container__button">
-                ORDER {itemText.toUpperCase()}
-            </button>
-    )
-}
 
 const Card = ({item}) => {
 
@@ -41,7 +33,7 @@ const Card = ({item}) => {
                     >{item.description.text}</p>
                 </div>
                 <div>
-                    <CardButton itemText={item.quantity.text} onClick={()=> console.log(`Your order for ${item.quantity.text} of ${item.title.text} has been placed. Thank you for your business!`)}/>
+                    <Button itemText={item.quantity.text} onClick={()=> console.log(`Your order for ${item.quantity.text} of ${item.title.text} has been placed. Thank you for your business!`)}/>
                 </div>
             </div>
         </div>

@@ -2,7 +2,19 @@ button {
     background-color: rgba(0, 0, 0, 0);
     border-radius: 15px;
     color: #ffffff;
-    border: 0px
+    border: 0px;
+    width: 100%;
+}
+
+.nav-icon:active {
+    position: relative;
+    top: 1px;
+    filter: drop-shadow(0 2px 2px rgb(0 0 0 / 20%));
+}
+
+.link {
+    max-height: 30px;
+    border-radius: 15px;
 }
 
 .active {
@@ -27,4 +39,5 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }

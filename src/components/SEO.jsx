@@ -24,7 +24,7 @@ const SEO = ({ description, lang, meta, title }) => {
 			htmlAttributes={{
 				lang,
 			}}
-			title={title}
+			title={title? title : "Welcome to the Challenge"}
 			titleTemplate={
 				defaultTitle ? `%s | ${defaultTitle}` : undefined
 			}

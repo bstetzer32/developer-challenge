@@ -1,38 +1,51 @@
 import React from "react";
-import { Link } from "gatsby-link";
+import Link from "gatsby-link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import "normalize.css";
 import "./Nav.css"
-import { ReactComponent as FaUserCircle } from "../assets/FaUserCircle.svg";
-import { ReactComponent as FaShoppingCart } from "../assets/FaShoppingCart.svg";
 
 const Nav = () => {
-
+    
+    // Navbar using gastby-link to direct to pages created dynamically in gastby-node.js
     return (
         <div className="navbar">
-            <FaUserCircle 
-                className="nav-user-icon" 
+            <FontAwesomeIcon 
+                icon={faUserCircle}
+                className="nav-user-icon nav-icon" 
                 onClick={()=> console.log("User Profile Coming Soon!")}
             />
             <Link 
                 to="/soup" 
                 activeClassName="active"
+                className="link"
             >
-                SOUPS
+                <button>
+                    SOUPS
+                </button>
             </Link>
             <Link 
                 to="/dessert" 
                 activeClassName="active"
+                className="link"
+                // className="home"
             >
-                DESSERTS
+                <button>
+                    DESSERTS
+                </button>
             </Link>
             <Link 
                 to="/pet-food" 
                 activeClassName="active"
+                className="link"
             >
-                PET FOOD
+                <button>
+                    PET FOOD
+                </button>
             </Link>
-            <FaShoppingCart 
-                className="nav-cart-icon" 
+            <FontAwesomeIcon 
+                icon={faShoppingCart}
+                className="nav-cart-icon nav-icon" 
                 onClick={()=> console.log("Cart Page Coming Soon!")}
             />
         </div>

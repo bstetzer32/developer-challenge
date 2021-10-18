@@ -39,16 +39,6 @@ const PhoneScreen = styled.div`
 
 // ========= MAIN =========
 const Index = ({ data }) => {
-	const [items, setItems] = useState({})
-	const [selected, setSelected] = useState("DESSERT")
-	// set items on pageload
-	useEffect(()=>{
-		let newItems = {}
-		data.allPrismicProduct.edges.forEach((v, i) =>{
-			newItems[v.node.data.type] = v.node.data
-		})
-		setItems(newItems)
-	},[])
 
 	return (
 		<>

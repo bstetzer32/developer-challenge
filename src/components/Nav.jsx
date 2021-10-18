@@ -1,24 +1,40 @@
 import React from "react";
+import { Link } from "gatsby-link";
 import "normalize.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import "./Nav.css"
+import { ReactComponent as FaUserCircle } from "../assets/FaUserCircle.svg";
+import { ReactComponent as FaShoppingCart } from "../assets/FaShoppingCart.svg";
 
-const Nav = ({selected, onClick}) => {
+const Nav = () => {
 
     return (
         <div className="navbar">
-            <FontAwesomeIcon icon={faUserCircle} className="nav-user-icon" onClick={()=> console.log("User Profile Coming Soon!")}/>
-            <button value="SOUP" onClick={onClick} className={selected === "SOUP" ? "active" : null}>
+            <FaUserCircle 
+                className="nav-user-icon" 
+                onClick={()=> console.log("User Profile Coming Soon!")}
+            />
+            <Link 
+                to="/soup" 
+                activeClassName="active"
+            >
                 SOUPS
-            </button>
-            <button value="DESSERT" onClick={onClick} className={selected === "DESSERT" ? "active" : null}>
+            </Link>
+            <Link 
+                to="/dessert" 
+                activeClassName="active"
+            >
                 DESSERTS
-            </button>
-            <button value="PET FOOD" onClick={onClick} className={selected === "PET FOOD" ? "active" : null}>
+            </Link>
+            <Link 
+                to="/pet-food" 
+                activeClassName="active"
+            >
                 PET FOOD
-            </button>
-            <FontAwesomeIcon icon={faShoppingCart} className="nav-cart-icon" onClick={()=> console.log("Cart Page Coming Soon!")}/>
+            </Link>
+            <FaShoppingCart 
+                className="nav-cart-icon" 
+                onClick={()=> console.log("Cart Page Coming Soon!")}
+            />
         </div>
     )
 }
